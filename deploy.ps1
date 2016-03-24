@@ -2,6 +2,9 @@
 
 $ProgressPreference="SilentlyContinue"
 
-.\install.ps1 -Channel beta -InstallDir .dotnet
+# .\install.ps1 -Channel beta -InstallDir .dotnet
 
-.\.dotnet\dotnet.exe --version
+# .\.dotnet\dotnet.exe --version
+
+$sdk_folder = (ls -Directory .dotnet\sdk\ | select -first 1).FullName
+& "$sdk_folder\corehost.exe" $sdk_folder\dotnet.dll --version 
