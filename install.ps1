@@ -69,11 +69,11 @@ $VersionRegEx="/\d+\.\d+[^/]+/"
 $OverrideNonVersionedFiles=$true
 
 function Say($str) {
-    Write-Host "dotnet_install: $str"
+    [System.Console]::WriteLine("dotnet_install: $str")
 }
 
-function Say-Verbose($str) {
-    Write-Verbose "dotnet_install: $str"
+function Say-Verbose($str) {    
+    [System.Console]::WriteLine("dotnet_install: $str")
 }
 
 function Say-Invocation($Invocation) {
