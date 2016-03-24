@@ -7,4 +7,9 @@ $ProgressPreference="SilentlyContinue"
 # .\.dotnet\dotnet.exe --version
 
 $sdk_folder = (ls -Directory .dotnet\sdk\ | select -first 1).FullName
+
+# Validate version
 & "$sdk_folder\corehost.exe" $sdk_folder\dotnet.dll --version 
+
+# Restore packages
+& "$sdk_folder\corehost.exe" $sdk_folder\dotnet.dll restore
