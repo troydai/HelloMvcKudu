@@ -1,3 +1,3 @@
-$ProgressPreference = "SilentlyContinue"
+$ProgressPreference="SilentlyContinue"
 
-Write-Host "Running deployment scripts"
+./install.ps1 beta
