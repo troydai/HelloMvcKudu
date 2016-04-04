@@ -2,18 +2,13 @@
 
 $ProgressPreference="SilentlyContinue"
 
-# .\install.ps1 -Channel beta -InstallDir .dotnet
+.\install.ps1 -Channel beta -InstallDir .dotnet
 
-# .\.dotnet\dotnet.exe --version
-
-$sdk_folder = (ls -Directory .dotnet\sdk\ | select -first 1).FullName
-
-# Validate version
-& "$sdk_folder\corehost.exe" $sdk_folder\dotnet.dll --version 
+& .\.dotnet\dotnet.exe --version
 
 # Restore packages
-& "$sdk_folder\corehost.exe" $sdk_folder\dotnet.dll restore
+& .\.dotnet\dotnet.exe restore
 
 # Publish
 $output = "$env:DEPLOYMENT_TARGET\.."
-& "$sdk_folder\corehost.exe" $sdk_folder\dotnet.dll publish .\src\HelloMvc\project.json -o $output
+& .\.dotnet\dotnet.exe publish .\src\HelloMvc\project.json -o $output
